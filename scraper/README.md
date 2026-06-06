@@ -1,53 +1,91 @@
-
 # Mirleft Scraper
 
-نظام سكرابينغ لجلب بيانات Mirleft من مواقع الإنترنت وتخزينها في Laravel.
+Système de collecte de données destiné à alimenter la plateforme Mirleft Travel avec des informations sur les hébergements, restaurants, activités et locations de vacances.
 
-## الخطوات
-
-### 1. تثبيت الاعتماديات
+## Installation
 
 ```bash
 cd scraper
 npm install
 ```
 
-### 2. تشغيل خادم Laravel
+## Lancement du Backend Laravel
 
-في نافذة CMD جديدة:
+Avant d'exécuter les scripts de collecte, démarrer l'API Laravel :
+
 ```bash
 cd mirleft-backend
 php artisan serve
 ```
 
-### 3. تشغيل السكرابينغات
+Par défaut :
 
-توجد سكربتات جاهزة لكل نوع من البيانات:
+```text
+http://127.0.0.1:8000
+```
 
-| النوع | الملف | URL الهدف |
-|-------|--------|-----------|
-| فنادق | `final-scraper.mjs` | Booking.com |
-| مطاعم | `final-restaurants.mjs` | TripAdvisor |
-| نشاطات/أشياء للعمل | `final-activities.mjs` | TripAdvisor |
-| إيجارات عطلات | `final-vacation-rentals.mjs` | Booking.com |
+## Scripts Disponibles
 
-تشغيل أي سكربت:
+| Catégorie             | Fichier                      |
+| --------------------- | ---------------------------- |
+| Hôtels                | `final-scraper.mjs`          |
+| Restaurants           | `final-restaurants.mjs`      |
+| Activités             | `final-activities.mjs`       |
+| Locations de vacances | `final-vacation-rentals.mjs` |
+
+## Exécution
+
+### Hôtels
+
 ```bash
 node final-scraper.mjs
+```
+
+### Restaurants
+
+```bash
 node final-restaurants.mjs
+```
+
+### Activités
+
+```bash
 node final-activities.mjs
+```
+
+### Locations de vacances
+
+```bash
 node final-vacation-rentals.mjs
 ```
 
-## ملفات التصحيح (Debug)
+## Fonctionnement
 
-توجد ملفات تصحيح لتجربة الصفحات قبل السكرابينغ النهائي:
-- `debug-script.mjs` (للفنادق)
-- `debug-restaurants.mjs`
-- `debug-activities.mjs`
+* Collecte des données depuis des plateformes de voyage publiques.
+* Extraction des informations principales (nom, description, images, notes, localisation, etc.).
+* Envoi des données vers l'API Laravel.
+* Mise à jour automatique des enregistrements existants afin d'éviter les doublons.
 
-## ملاحظات
+## Structure
 
-- جميع السكربتات تفتح متصفح حقيقي (لا Headless) لتجنب كشف الـ Bot
-- جميع البيانات تخزن في Mirleft Destination فقط
-- يتم استخدام `updateOrCreate` لتجنب تكرار البيانات
+```text
+scraper/
+├── final-scraper.mjs
+├── final-restaurants.mjs
+├── final-activities.mjs
+├── final-vacation-rentals.mjs
+├── package.json
+└── README.md
+```
+
+## Prérequis
+
+* Node.js 18+
+* Laravel Backend opérationnel
+* Connexion Internet active
+
+## Remarques
+
+* Les scripts utilisent un navigateur automatisé pour la collecte des données.
+* Les données récupérées sont intégrées directement à la plateforme Mirleft Travel.
+* Vérifier que l'API Laravel est accessible avant l'exécution des scripts.

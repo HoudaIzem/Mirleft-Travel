@@ -1,0 +1,35 @@
+[
+  {
+    "name": "Riad Mirleft Ocean",
+    "price": "450",
+    "image": "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800",
+    "location": "Mirleft, Morocco",
+    "description": "Charming riad with Atlantic views and rooftop terrace.",
+    "type": "riad",
+    "status": "active",
+    "rating": 4.6,
+    "reviews_count": 42
+  },
+  {
+    "name": "Villa Aftas Surf Lodge",
+    "price": "680",
+    "image": "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800",
+    "location": "Aftas Beach, Mirleft",
+    "description": "Surf-friendly villa steps from Aftas beach breaks.",
+    "type": "villa",
+    "status": "active",
+    "rating": 4.8,
+    "reviews_count": 31
+  },
+  {
+    "name": "Hotel Legzira View",
+    "price": "520",
+    "image": "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800",
+    "location": "Mirleft, Morocco",
+    "description": "Comfortable hotel ideal for trips to Legzira arches.",
+    "type": "hotel",
+    "status": "active",
+    "rating": 4.4,
+    "reviews_count": 58
+  }
+]
